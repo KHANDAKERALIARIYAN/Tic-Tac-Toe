@@ -28,16 +28,23 @@ const resetGame = () => {
 boxes.forEach((box) => {
     box.addEventListener("click", () => {
         if (turnO) {
+            // player O
             box.innerText = "O";
             turnO = false;
-        } else {
+        } 
+        else {
+            // player X
             box.innerText = "X";
             turnO = true;
         }
+        
         box.disabled = true;
+        
         count++;
+        
         let isWinner = checkWinner();
-        if (count === 9 && !isWinner1) {
+        
+        if (count === 9 && !isWinner) {
             gameDraw();
         }
     });
